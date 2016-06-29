@@ -101,6 +101,7 @@ pid_t lock_test(int, int, off_t ,int, off_t);  /* fig.14.6 */
 #define is_write_lockable(fd, offset, whence, len) \
   (lock_test((fd), F_WRLCK, (offset), (whence), (len)) == 0)
 
+/* appendix B */
 void err_msg(const char *, ...);
 void err_dump(const char *, ...) __attribute__((noreturn));
 void err_quit(const char *, ...) __attribute__((noreturn));
@@ -109,6 +110,7 @@ void err_exit(int, const char *, ...) __attribute__((noreturn));
 void err_ret(const char *, ...);
 void err_sys(const char *, ...) __attribute__((noreturn));
 
+/* appendix B */
 void log_msg(const char *, ...);
 void log_open(const char *, int, int);
 void log_quit(const char *, ...) __attribute__((noreturn));
@@ -116,6 +118,7 @@ void log_ret(const char *, ...);
 void log_sys(const char *, ...) __attribute__((noreturn));
 void log_exit(int, const char *, ...) __attribute__((noreturn));
 
+/* chap.8.9 */
 void TELL_WAIT(void);
 void TELL_PARENT(pid_t);
 void TELL_CHILD(pid_t);

@@ -1,3 +1,17 @@
+/*
+            | add str       |  parameter   |         |    
+            | from strerror |  to strerror |  exit   |    
+ -----------+---------------+--------------+---------|    
+ * log_msg  |       x       |       -      | return  | 
+ * log_quit |       x       |       -      | exit(2) | 
+ * log_ret  |       o       |     errno    | return  | 
+ * log_sys  |       o       |     errno    | exit(2) | 
+ * log_exit |       o       |     param    | exit(2) | 
+ -----------------------------------------------------
+
+ */                          
+
+
 #include "apue.h"
 #include <errno.h>
 #include <stdarg.h>

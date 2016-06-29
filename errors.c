@@ -1,3 +1,19 @@
+/*
+            | add str       |  parameter   |         |    
+            | from strerror |  to strerror |  exit   |    
+ -----------+---------------+--------------+---------|    
+ * err_dump |       o       |     errno    | abort() | 
+ * err_exit |       o       |     param    | exit(1) | 
+ * err_msg  |       x       |       -      | return  | 
+ * err_quit |       x       |       -      | exit(1) | 
+ * err_ret  |       o       |     errno    | return  | 
+ * err_sys  |       o       |     errno    | exit(1) | 
+ * err_cont |       o       |     param    | return  | 
+ -----------------------------------------------------
+
+ */                          
+
+
 #include "apue.h"
 #include <errno.h>
 #include <stdarg.h>  /* variable argument */
