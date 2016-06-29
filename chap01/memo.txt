@@ -1,0 +1,20 @@
+** thread
+threads share address space, they need specific errno.
+
+extern int *__errno_location(void);
+#define errno (*__errno_location())
+
+
+** error function
+
+#include <string.h>
+char *strerror(int errnum);
+this function converts errnum to error message.
+
+#include <stdio.h>
+void perror(const char *msg);
+  - this function show
+  - str directed by *msg,
+  - colon and space(: ),
+  - error message responding to errno,
+  - newline.
