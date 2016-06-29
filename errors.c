@@ -20,6 +20,8 @@
 
 static void err_doit(int, int, const char *, va_list);
 
+/* system call -- nonfatal error
+   show message, and return */
 void err_ret(const char *fmt, ...)
 {
   va_list ap;
@@ -29,6 +31,8 @@ void err_ret(const char *fmt, ...)
   va_end(ap);
 }
 
+/* system call -- fatal error
+   show message, and exit */
 void err_sys(const char *fmt, ...)
 {
   va_list ap;
@@ -39,6 +43,9 @@ void err_sys(const char *fmt, ...)
   exit(1);
 }
 
+/* non system call -- nonfatal error
+   errorcode passed by argument
+   show message, and return */
 void err_cont(int error, const char *fmt, ...)
 {
   va_list ap;
@@ -48,6 +55,9 @@ void err_cont(int error, const char *fmt, ...)
   va_end(ap);
 }
 
+/* non system call -- fatal error
+   errorcode passed by argument
+   show message, and exit */
 void err_exit(int error, const char *fmt, ...)
 {
   va_list ap;
@@ -58,6 +68,8 @@ void err_exit(int error, const char *fmt, ...)
   exit(1);
 }
 
+/* system call -- fatal error
+   show message, and core dump */
 void err_dump(const char *fmt, ...)
 {
   va_list ap;
@@ -69,6 +81,8 @@ void err_dump(const char *fmt, ...)
   exit(1);
 }
 
+/* non system call -- non fatal error
+   show message and return */
 void err_msg(const char *fmt, ...)
 {
   va_list ap;
@@ -78,6 +92,8 @@ void err_msg(const char *fmt, ...)
   va_end(ap);
 }
 
+/* non system call -- fatal error
+   show message and exit */
 void err_quit(const char *fmt, ...)
 {
   va_list ap;
@@ -88,6 +104,8 @@ void err_quit(const char *fmt, ...)
   exit(1);
 }
 
+/* show message
+   calling src directs "errnoflag" */
 static void err_doit(int errnoflag, int error, const char *fmt, va_list ap)
 {
   char buf[MAXLINE];

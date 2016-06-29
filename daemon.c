@@ -8,9 +8,7 @@
  * log_sys  |       o       |     errno    | exit(2) | 
  * log_exit |       o       |     param    | exit(2) | 
  -----------------------------------------------------
-
  */                          
-
 
 #include "apue.h"
 #include <errno.h>
@@ -19,14 +17,18 @@
 
 static void log_doit(int, int, int, const char *, va_list ap);
 
+/* calling src must define this */
 extern int log_to_stderr;
 
+/* if daemon, init syslog() */
 void log_open(const char *ident, int option, int facility)
 {
   if (log_to_stderr == 0)
     openlog(ident, option, facility);
 }
 
+/* system call -- nonfatal error
+   show message and errno, and return */
 void log_ret(const char *fmt, ...)
 {
   va_list ap;
@@ -36,6 +38,8 @@ void log_ret(const char *fmt, ...)
   va_end(ap);
 }
 
+/* system call -- fatal error
+   show message, and exit */
 void log_sys(const char *fmt, ...)
 {
   va_list ap;
@@ -46,6 +50,8 @@ void log_sys(const char *fmt, ...)
   exit(2);
 }
 
+/* non system call -- nonfatal error
+   show message, and return */
 void log_msg(const char *fmt, ...)
 {
   va_list ap;
@@ -55,6 +61,8 @@ void log_msg(const char *fmt, ...)
   va_end(ap);
 }
 
+/* non system call -- fatal error
+   show message, and exit */
 void log_quit(const char *fmt, ...)
 {
   va_list ap;
@@ -65,6 +73,9 @@ void log_quit(const char *fmt, ...)
   exit(2);
 }
 
+/* non nystem call -- fatal error
+   errorcode passed by argument
+   show message, and exit */
 void log_exit(int error, const char *fmt, ...)
 {
   va_list ap;
@@ -75,6 +86,8 @@ void log_exit(int error, const char *fmt, ...)
   exit(2);
 }
 
+/* show message, and return
+   calling src directs "errnoflag" and "priority" */
 static void log_doit(int errnoflag, int error, int priority, const char *fmt, va_list ap)
 {
   char buf[MAXLINE];
