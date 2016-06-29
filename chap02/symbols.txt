@@ -1,0 +1,32 @@
+# POSIX.1  symbol constant
+(sign):  (symbol)                         :(explanation)
+------+-----------------------------------+-------------------------------------------
+ ADV  : _POSIX_ADVISORY_INFO              : 忠告情報（リアルタイム）
+ CPT  : _POSIX_CPUTIME                    : プロセスCPU時間クロック（リアルタイム）
+ FSC  : _POSIX_FSYNC                      : ファイルの同期
+ IP6  : _POSIX_IPV6                       : IPv6インターフェイス
+ ML   : _POSIX_MEMLOCK                    : プロセスメモリのクロック（リアルタイム）
+ MLR  : _POSIX_MEMLOCK_RANGE              : メモリ範囲のロック（リアルタイム）
+ MON  : _POSIX_MONOTONIC_CLOCK            : 単調クロック（リアルタイム）
+ MSG  : _POSIX_MESSAGE_PASSING            : メッセージパッシング（リアルタイム）
+ MX   : __STDC_IEC_559__                  : IEC60559 浮動小数点オプション
+ PIO  : _POSIX_PRIORITIZED_IO             : 優先順位付き入出力
+ PS   : _POSIX_PRIORITY_SCHEDULING        : プロセススケジュール（リアルタイム）
+ RPI  : _POSIX_THREAD_ROBUST_PRIO_INHERIT : 堅牢なミューテックス優先度継承（リアルタイム）
+ RPP  : _POSIX_THREAD_ROBUST_PRIO_PROTECT : 堅牢なミューテックス優先度保護（リアルタイム）
+ RS   : _POSIX_RAW_SOCKETS                : ロウソケット
+ SHM  : _POSIX_SHARED_MEMORY_OBJECTS      : 共有メモリオブジェクト（リアルタイム）
+ SIO  : _POSIX_SYNCHRONIZED_IO            : 同期入出力（リアルタイム）
+ SPN  : _POSIX_SPAWN                      : スポーン（リアルタイム）
+ SS   : _POSIX_SPORADIC_SERVER            : プロセススポラディックサーバ（リアルタイム）
+ TCT  : _POSIX_THREAD_CPUTIME             : スレッドCPU時間クロック（リアルタイム）
+ TPI  : _POSIX_THREAD_PRIO_INHERIT        : 非堅牢なミューテックス優先度継承（リアルタイム）
+ TPP  : _POSIX_THREAD_PRIO_PROTECT        : 非堅牢なミューテックス優先度保護（リアルタイム）       
+ TPS  : _POSIX_THREAD_PRIORITY_SCHEDULING : スレッドの実行スケジュール（リアルタイム）
+ TSA  : _POSIX_THREAD_ATTR_STACKADDR      : スレッドのスタックアドレスの属性     
+ TSH  : _POSIX_THREAD_PROCESS_SHARED      : スレッドプロセス共有
+ TSP  : _POSIX_THREAD_SPORADIC_SERVER     : スレッドスポラディックサーバ（リアルタイム）
+ TSS  : _POSIX_THREAD_ATTR_STACKSIZE      : スレッドのスタックサイズアドレス 
+ TYM  : _POSIX_TYPED_MEMORY_OBJECTS       : 型付きメモリオブジェクト（リアルタイム）
+ XSI  : _XOPEN_UNIX                       : X/Openインターフェイス
+
