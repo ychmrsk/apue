@@ -27,6 +27,7 @@
 #include <fcntl.h>
 int open(const char *path, int oflag, ... /* mode_t mode */);
 int openat(int fd, const char *path, int oflag, ... /* mode_t mode */);
+  both returns file descriptor or -1 when error
 
 * oflag in <fcntl.h>
   - O_RDONLY -- read only
@@ -54,3 +55,33 @@ int openat(int fd, const char *path, int oflag, ... /* mode_t mode */);
 
 ------------------------------------------------------------
 #include <fcntl.h>
+int creat(const char *path, mode_t mode);
+  returns file descriptor or -1 when error
+
+= open(path, O_WRONLY | O_CREAT | O_TRUNC, mode)
+
+mode : access permission => 4.5
+
+------------------------------------------------------------
+#include <fcntl.h>
+int close(int fd);
+  returns 0 when OK or -1 when error
+
+------------------------------------------------------------
+* current file offset
+
+#include <unistd.h>
+off_t lseek(int fd, off_t offset, int whence);
+  returns file offset or -1 when error
+
+offset <= whence
+  - whence is SEEK_SET, offset is from top of file
+  - whence is SEEK_CUR, offset is from current position
+  - whence is SEEK_END, offset is from position at size of file
+
+
+------------------------------------------------------------
+#include <unistd.h>
+ssize_t read(int fd, void *buf, size_t nbytes);
+  returns byte nums have read or -1 when error
+
