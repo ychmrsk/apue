@@ -1,0 +1,56 @@
+============================================================
+3. ファイル入出力
+============================================================
+
+* open
+* read
+* write 
+* lseek
+* close
+
+* atomic operation
+
+* dup
+* fcntl
+* sync
+* fsync
+* ioctl
+
+
+------------------------------------------------------------
+* file descriptor (0 ~ OPEN_MAX-1)
+  - stdin  0 : STDIN_FILENO in <unistd.h>
+  - stdout 1 : STDOUT_FILENO in <unistd.h>
+  - stderr 2 : STDERR_FILENO in <unistd.h>
+
+------------------------------------------------------------
+#include <fcntl.h>
+int open(const char *path, int oflag, ... /* mode_t mode */);
+int openat(int fd, const char *path, int oflag, ... /* mode_t mode */);
+
+* oflag in <fcntl.h>
+  - O_RDONLY -- read only
+  - O_WRONLY -- write only
+  - O_RDWR   -- read and write
+  - O_EXEC   -- execution
+  - O_SEARCH -- search for directory
+
+(option)
+  - O_APPEND    -- append
+  - O_CLOEXEC   -- => 3.14
+  - O_CREAT     -- create when not exist
+  - O_DIRECTORY -- error when path means directory
+  - O_EXCL      -- error when O_CREAT and file exist
+
+  - O_NOCTTY   -- => 9.6
+  - O_NOFOLLOW -- => 4.17
+  - O_NONBLOCK -- => 14.2 
+  - O_NDELAY   -- ~ O_NONBLOCK
+  - O_SYNC     -- => 3.14
+  - O_TRUNC    -- => truncate
+  - O_TTY_INIT -- => 18
+  - O_DSYNC    -- =>  
+  - O_RSYNC    -- =>  
+
+------------------------------------------------------------
+#include <fcntl.h>
